@@ -44,4 +44,14 @@ public class AvocadoTest extends RestAssuredTest {
                 .assertThat()
                 .statusCode(UNAUTHORIZED.value());
     }
+
+    @Test
+    public void joinArmyInfo_givenKnownUsernameAndPasswordEncodedAsBasicAuthenticationHeader_thenShouldAllowAccess() {
+        givenRequestForUser("JMILLER", "THANKS")
+                .when()
+                .post()
+                .then()
+                .assertThat()
+                .statusCode(OK.value());
+    }
 }
