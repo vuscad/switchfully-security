@@ -3,8 +3,7 @@ package avocado;
 import com.cegeka.switchfully.security.ArmyResource;
 import org.junit.Test;
 
-import static org.springframework.http.HttpStatus.FORBIDDEN;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 public class BaobabTest extends RestAssuredTest {
     @Test
@@ -197,6 +196,16 @@ public class BaobabTest extends RestAssuredTest {
                 .then()
                 .assertThat()
                 .statusCode(OK.value());
+    }
+
+    @Test
+    public void dischargePrivate_givenUserWithRoleHumanRelations_ThenShouldGetResult2() {
+        givenRequestForUser("DAN", "SAM")
+                .when()
+                .post(String.format("%s/%s/%s", ArmyResource.ARMY_RESOURCE_PATH, "discharge", "ZWANETTA"))
+                .then()
+                .assertThat()
+                .statusCode(UNAUTHORIZED.value());
     }
 
     @Test

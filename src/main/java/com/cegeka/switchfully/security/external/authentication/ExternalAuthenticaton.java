@@ -5,7 +5,7 @@ import java.util.List;
 public class ExternalAuthenticaton {
     private String username;
     private String password;
-    private List<String> roles;
+    private List<Role> roles;
 
     public static ExternalAuthenticaton externalAuthenticaton(){
         return new ExternalAuthenticaton();
@@ -21,7 +21,7 @@ public class ExternalAuthenticaton {
         return this;
     }
 
-    public ExternalAuthenticaton withRoles(List<String> roles) {
+    public ExternalAuthenticaton withRoles(List<Role> roles) {
         this.roles = roles;
         return this;
     }
@@ -34,7 +34,7 @@ public class ExternalAuthenticaton {
         return password;
     }
 
-    public List<String> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 }

@@ -2,6 +2,7 @@ package avocado;
 
 import com.cegeka.switchfully.security.ArmyInfoDto;
 import com.cegeka.switchfully.security.ArmyResource;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,6 +24,14 @@ public class AvocadoTest extends RestAssuredTest {
                 .as(ArmyInfoDto.class);
 
         assertThat(actual.country).isEqualTo("Belgium");
+    }
+
+    //@Test
+    public void test() {
+        System.out.println(DigestUtils.md5Hex("WORST"));
+        System.out.println(DigestUtils.md5Hex("THANKS"));
+        System.out.println(DigestUtils.md5Hex("SAM"));
+        System.out.println(DigestUtils.md5Hex("RALLY"));
     }
 
     @Test
